@@ -3,7 +3,7 @@ source :rubygems
 # Project requirements
 gem 'rake'
 gem 'rack-flash'
-gem 'mongrel'
+gem 'thin'
 
 # Component requirements
 gem 'compass'
