@@ -1,5 +1,6 @@
 class Employee
   include DataMapper::Resource
+  has n, :punches
 
   # property <name>, <type>
   property :id, Serial
