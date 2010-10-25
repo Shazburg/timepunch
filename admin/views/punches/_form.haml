@@ -2,7 +2,6 @@
   =f.label :in
   =f.error_message_on :in
   =f.radio_button :in, :value => 1
-  %br
   =f.label :out
   =f.radio_button :in, :value => 0
 
@@ -15,7 +14,7 @@
 .group
   =f.label :employee_id
   =f.error_message_on :employee_id
-  =f.text_field :employee_id, :class => :text_field
+  =f.select :employee_id, :collection => Employee.all, :fields => [:display_name, :id]
   %span.description Ex: a simple text
 
 

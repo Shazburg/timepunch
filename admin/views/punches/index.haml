@@ -10,17 +10,15 @@
     .inner
       %table.table
         %tr
-          %th.first=mat(:punch, :id)
-          %th=mat(:punch, :in)
+          %th.first=mat(:punch, :in)
           %th=mat(:punch, :timestamp)
           %th=mat(:punch, :employee_id)
           %th.last="&nbsp;"
         -@punches.each do |punch|
           %tr
-            %td.first=punch.id
-            %td=punch.in
+            %td.first=punch.in
             %td=punch.timestamp
-            %td=punch.employee_id
+            %td=punch.employee.display_name
             %td.last
               =button_to pat(:edit), url(:punches, :edit, :id => punch.id), :method => :get, :class => :button_to
               ="|"
