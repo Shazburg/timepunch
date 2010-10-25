@@ -1,0 +1,24 @@
+.group
+  =f.label :in
+  =f.error_message_on :in
+  =f.radio_button :in, :value => 1
+  %br
+  =f.label :out
+  =f.radio_button :in, :value => 0
+
+.group
+  =f.label :timestamp
+  =f.error_message_on :timestamp
+  =f.text_field :timestamp, :class => :text_field
+  %span.description Ex: a simple text
+
+.group
+  =f.label :employee_id
+  =f.error_message_on :employee_id
+  =f.text_field :employee_id, :class => :text_field
+  %span.description Ex: a simple text
+
+
+.group.navform.wat-cf
+  =f.submit pat(:save), :class => :button
+  =f.submit pat(:cancel), :onclick => "window.location='#{url(:punches, :index)}';return false", :class => :button

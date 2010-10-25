@@ -1,0 +1,31 @@
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first.active=link_to pat(:list), url(:punches, :index)
+      %li=link_to pat(:new), url(:punches, :new)
+  .content
+    %h2.title
+      =pat(:all)
+      =mt(:punch)
+    .inner
+      %table.table
+        %tr
+          %th.first=mat(:punch, :id)
+          %th=mat(:punch, :in)
+          %th=mat(:punch, :timestamp)
+          %th=mat(:punch, :employee_id)
+          %th.last="&nbsp;"
+        -@punches.each do |punch|
+          %tr
+            %td.first=punch.id
+            %td=punch.in
+            %td=punch.timestamp
+            %td=punch.employee_id
+            %td.last
+              =button_to pat(:edit), url(:punches, :edit, :id => punch.id), :method => :get, :class => :button_to
+              ="|"
+              =button_to pat(:delete), url(:punches, :destroy, :id => punch.id), :method => :delete, :class => :button_to
+      .actions-bar.wat-cf
+        .actions="&nbsp;"
+
+-content_for :sidebar, partial("base/sidebar")
