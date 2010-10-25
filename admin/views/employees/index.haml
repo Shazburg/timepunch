@@ -1,0 +1,31 @@
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first.active=link_to pat(:list), url(:employees, :index)
+      %li=link_to pat(:new), url(:employees, :new)
+  .content
+    %h2.title
+      =pat(:all)
+      =mt(:employee)
+    .inner
+      %table.table
+        %tr
+          %th.first=mat(:employee, :id)
+          %th=mat(:employee, :last_name)
+          %th=mat(:employee, :first_name)
+          %th=mat(:employee, :enabled)
+          %th.last="&nbsp;"
+        -@employees.each do |employee|
+          %tr
+            %td.first=employee.id
+            %td=employee.last_name
+            %td=employee.first_name
+            %td=employee.enabled
+            %td.last
+              =button_to pat(:edit), url(:employees, :edit, :id => employee.id), :method => :get, :class => :button_to
+              ="|"
+              =button_to pat(:delete), url(:employees, :destroy, :id => employee.id), :method => :delete, :class => :button_to
+      .actions-bar.wat-cf
+        .actions="&nbsp;"
+
+-content_for :sidebar, partial("base/sidebar")
