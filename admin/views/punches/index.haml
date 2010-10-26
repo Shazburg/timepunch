@@ -10,14 +10,14 @@
     .inner
       %table.table
         %tr
-          %th.first=mat(:punch, :in)
+          %th.first Punch
           %th=mat(:punch, :timestamp)
           %th=mat(:punch, :employee_id)
           %th.last="&nbsp;"
-        -@punches.each do |punch|
+        -@punches.reverse.each do |punch|
           %tr
-            %td.first=punch.in
-            %td=punch.timestamp
+            %td.first=punch_in_or_out(punch.in)
+            %td=timestamp_local(punch.timestamp)
             %td=punch.employee.display_name
             %td.last
               =button_to pat(:edit), url(:punches, :edit, :id => punch.id), :method => :get, :class => :button_to
