@@ -25,6 +25,7 @@ class Admin < Padrino::Application
   end
 
   access_control.roles_for :admin do |role|
+      role.project_module :timesheets, "/timesheets"
       role.project_module :punches, "/punches"
       role.project_module :employees, "/employees"
       role.project_module :accounts, "/accounts"
