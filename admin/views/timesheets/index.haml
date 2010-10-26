@@ -1,0 +1,18 @@
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first.active=link_to pat(:all), url(:timesheets, :index)
+  .content
+    %h2.title All Employees
+    .inner
+      %table.table
+        %tr
+          %th.first Name
+          %th Total Hours
+          %th.last &nbsp;
+        -@employees.each do |employee|
+          %tr
+            %td.first=employee.display_name
+            %td &nbsp;
+            %td.last &nbsp;
+-content_for :sidebar, partial("timesheets/sidebar")
