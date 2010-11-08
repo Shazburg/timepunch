@@ -13,6 +13,6 @@
         -@employees.each do |employee|
           %tr
             %td.first=employee.display_name
-            %td &nbsp;
+            %td=@date_range
             %td.last &nbsp;
 -content_for :sidebar, partial("timesheets/sidebar")

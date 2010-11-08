@@ -2,8 +2,16 @@
   %h3 Date Range
   .content
     %p
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      -form_tag url_for(:timesheets, :index), :class => :form, :method => :get do
+        .group
+          =label_tag :start_date
+          =text_field_tag :start_date, :class => :text_field, :value => @start_date
+        .group
+          =label_tag :end_date
+          =text_field_tag :end_date, :class => :text_field, :value => @end_date
+        .group
+          =submit_tag "Show Dates", :class => :button
+
 .block
   %h3 Links
   %ul.navigation
